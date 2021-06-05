@@ -1,10 +1,11 @@
 package Systems;
 
-public class administrator {
+public class administrator extends User {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	public administrator(String name, String userName, String password, String phoneNumber, String email, String address) {
+		super(name, userName, password, phoneNumber, email, address);
 	}
+
 
 }
