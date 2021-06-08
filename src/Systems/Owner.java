@@ -1,36 +1,38 @@
 package Systems;
-import java.util.ArrayList;
+
 public class Owner extends User {
-	public ArrayList<User> Owners;
-	public ArrayList<Playground> playgrounds;
-	public Owner(String name, String userName, String password, String phoneNumber, String email, String address) {
-		super(name, userName, password, phoneNumber, email, address);
-		Owners = new ArrayList<>();
-		playgrounds=new ArrayList<>();
+	private int number=0, id=0;
+	private User [] owners;
+	private Playground[] playgrounds;
+	public Owner() {
+		addowner();
 	}
-	public void addPlayground(Playground temp) {
-        playgrounds.add(temp);
-    }
-	public ArrayList<Playground> getPlaygrounds() {
-        return playgrounds;
-    }
+	public void addowner() {
+		User b = new User();                    
+	    owners[number] = b;
+	    number++;
+	}
+	public void add() {
+		playgrounds[id]=new Playground(owners[number]);
+		id++;
+	}
 	public String getBookings() {
         String res = "";
-        for (int i = 0; i < playgrounds.size(); i++) {
-            res += playgrounds.get(i).toString();
+        for (int i = 0; i < id; i++) {
+            res += playgrounds[i].toString();
         }
         return res;
     }
     public void showBookings()
     {
-        if (playgrounds.size()==0)
+        if (number==0)
         {
             System.out.println("There is no Bookings now");
             return;
         }
         else {
-        for (int i = 0 ; i<playgrounds.size();i++)
-            System.out.println(playgrounds.get(i).toString());
+        for (int i = 0 ; i<id;i++)
+            System.out.println(playgrounds[i].toString());
         }
     }
 }

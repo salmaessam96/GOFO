@@ -1,6 +1,7 @@
 package Systems;
 
 import java.util.Scanner;
+import Systems.Player;
 
 public class User {
 	protected String name;
@@ -8,14 +9,51 @@ public class User {
 	protected String password;
 	protected String phoneNumber;
 	protected String email;
-	protected String address;
-	public User(String name, String userName, String password, String phoneNumber, String email, String address) {
+	protected String type;
+	Scanner input=new Scanner(System.in);
+	public User() {
+		System.out.println("are you a player or owner?");
+		String type=input.next();
+		this.type=type;
+		System.out.println("Please enter your name");
+		String name=input.next();
 		this.name=name;
-		this.userName=userName;
+		System.out.println("username:");
+		String username=input.next();
+		userName=username;
+		System.out.println("password:");
+		String password=input.next();
 		this.password=password;
-		this.phoneNumber=phoneNumber;
-		this.email=email;
-		this.address=address;
+		System.out.println("enter your phone number");
+		String number=input.next();
+		phoneNumber=number;
+		System.out.println("enter your e-mail");
+		String mail=input.next();
+		email=mail;
+	}
+	public void login() {
+		System.out.println("Please enter your username");
+		String name=input.next();
+		System.out.println("Please enter your password");
+		String pass=input.next();
+		verify(name,pass);
+	}
+	public void verify(String username, String pass){
+		if(username!=userName&&pass==password) {
+			System.out.println("username is incorrect, try again");
+			login();
+		}
+		else if(name==userName&&pass!=password) {
+			System.out.println("password is incorrect, try again");
+			login();
+		}
+		if (name!=userName&&pass!=password){
+			System.out.println("username and password are incorrect, try again");
+			login();
+		}
+		else {
+			System.out.println("you logged-in successfully");
+		}
 	}
 	public void setName(String name) {
 		this.name=name;
@@ -47,10 +85,10 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
-	public void setAddress(String address) {
-		this.address=address;
+	public void settype(String type) {
+		this.type=type;
 	}
-	public String getAddress() {
-		return address;
+	public String gettype() {
+		return type;
 	}
 }
