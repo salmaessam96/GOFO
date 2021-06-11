@@ -1,9 +1,11 @@
 package Systems;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import Systems.Player;
 
 public class User {
+	ArrayList<Player> players;
+	ArrayList<Owner> owners;
 	protected String name;
 	protected String userName;
 	protected String password;
@@ -11,7 +13,17 @@ public class User {
 	protected String email;
 	protected String type;
 	Scanner input=new Scanner(System.in);
-	public User() {
+	public User(){
+		
+	}
+	public User(String name,String username, String password, String phonenumber,String mail ) {
+		this.name=name;
+		userName=username;
+		this.password=password;
+		phoneNumber=phonenumber;
+		email=mail;
+	}
+	public void addUser() {
 		System.out.println("are you a player or owner?");
 		String type=input.next();
 		this.type=type;
@@ -30,6 +42,12 @@ public class User {
 		System.out.println("enter your e-mail");
 		String mail=input.next();
 		email=mail;
+		if (type.equalsIgnoreCase("1")) {
+            players.add(new Player(name, username,password, number, mail));
+		}
+            if (type.equalsIgnoreCase("2")) {
+                owners.add(new Owner(name, username,password, number, mail));     
+		}
 	}
 	public void login() {
 		System.out.println("Please enter your username");

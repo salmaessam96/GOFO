@@ -4,14 +4,10 @@ public class Owner extends User {
 	private int number=0, id=0;
 	private User [] owners;
 	private Playground[] playgrounds;
-	public Owner() {
-		addowner();
+	public Owner(String name, String username, String password, String phonenumber, String mail) {
+		super(name, username, password, phonenumber, mail);
 	}
-	public void addowner() {
-		User b = new User();                    
-	    owners[number] = b;
-	    number++;
-	}
+	
 	public void add() {
 		playgrounds[id]=new Playground(owners[number]);
 		id++;

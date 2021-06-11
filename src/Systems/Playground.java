@@ -22,11 +22,11 @@ public class Playground {
 		String time=input.next();
 		availableTime=time;
 		input.close();
+		
     }
     public Playground(User owner) {
         this.owner = owner;
         count++;
-        addPlayground();
     }   
     public void addPlayground() {
 		Playground b = new Playground();                    

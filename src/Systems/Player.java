@@ -1,18 +1,15 @@
 
 package Systems;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player extends User {
 	Scanner input=new Scanner(System.in);
-	private User [] player;
+	private ArrayList <Player>players;
 	private int number=0; 
-	public Player() {
-		addplayer();
-	}
-	public void addplayer() {
-		User b = new User();                    
-	    player[number] = b;
-	    number++;
+	public Player(String name, String username, String password, String phonenumber, String mail) {
+		super(name, username, password, phonenumber, mail);
+		players = new ArrayList<>();
 	}
 	
 	public void options(){
